@@ -1,5 +1,11 @@
 // Question 1
 
+const cat = {
+  complain: function () {
+    console.log("Meow!");
+  },
+};
+
 // Question 2
 
 const heading = document.querySelector("h3");
@@ -56,5 +62,14 @@ catList(cats);
 // Question 8
 
 function createCats(cats) {
-  for (let i = 0; i < cats.length; i++) {}
+  let html = "";
+  for (let i = 0; i < cats.length; i++) {
+    const cat = cats[i];
+    const age = cat.age ? cat.age : "Age unknown";
+    html += "<div><h5>" + cat.name + "</h5><p>" + age + "</p></div>";
+  }
+  return html;
 }
+
+const catsContainer = document.querySelector(".cat-container");
+catsContainer.innerHTML = createCats(cats);
